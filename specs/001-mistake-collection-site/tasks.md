@@ -1,3 +1,4 @@
+請確認是否有將目前做完的進度在 tasks.md 裡面的任務打勾
 # Tasks: 錯題收集網站
 
 **Feature**: 001-mistake-collection-site  
@@ -149,26 +150,26 @@
 
 ### Implementation for User Story 4
 
-- [ ] T067 [P] [US4] Implement PhotoStorage.updatePhoto(id, updates) per storage-api.md contract in frontend/src/scripts/storage.js
-- [ ] T068 [P] [US4] Implement UnitStorage.getAllUnits() per storage-api.md contract in frontend/src/scripts/storage.js
-- [ ] T069 [P] [US4] Implement UnitStorage.createUnit(unitData) per storage-api.md contract in frontend/src/scripts/storage.js
-- [ ] T070 [P] [US4] Implement UnitStorage.deleteUnit(id) with usage check per storage-api.md in frontend/src/scripts/storage.js
-- [ ] T071 [US4] Create unit selector component (multi-select checkbox list grouped by category) in frontend/src/components/filter-panel.js
-- [ ] T072 [US4] Style unit selector component (collapsible groups, clear visual states) in frontend/src/styles/components.css
-- [ ] T073 [US4] Load and display all units (default + custom) using UnitStorage.getAllUnits() in frontend/src/components/filter-panel.js
-- [ ] T074 [US4] Implement unit selection/deselection handler (multi-select logic) in frontend/src/components/filter-panel.js
-- [ ] T075 [US4] Add unit selector to photo card edit mode or modal in frontend/src/components/photo-card.js
-- [ ] T076 [US4] Implement save units handler that calls PhotoStorage.updatePhoto() in frontend/src/scripts/photo-list.js
-- [ ] T077 [US4] Display assigned units on photo card (tags/badges below image) in frontend/src/components/photo-card.js
-- [ ] T078 [US4] Style unit badges (colored tags, compact display) in frontend/src/styles/components.css
-- [ ] T079 [US4] Create custom unit creation form in frontend/src/components/filter-panel.js
-- [ ] T080 [US4] Implement custom unit creation handler calling UnitStorage.createUnit() in frontend/src/components/filter-panel.js
-- [ ] T081 [US4] Add custom unit to unit selector after creation in frontend/src/components/filter-panel.js
-- [ ] T082 [US4] Create filter panel component with unit filter UI in frontend/src/components/filter-panel.js
-- [ ] T083 [US4] Style filter panel (sidebar or top panel, mobile-responsive) in frontend/src/styles/components.css
-- [ ] T084 [US4] Implement unit filter logic using PhotoStorage.getAllPhotos({filterByUnits}) in frontend/src/scripts/filters.js
-- [ ] T085 [US4] Connect filter panel to photo list (update list when filter changes) in frontend/src/scripts/app.js
-- [ ] T086 [US4] Add filter panel to main page layout in frontend/src/index.html
+- [X] T067 [P] [US4] Implement PhotoStorage.updatePhoto(id, updates) per storage-api.md contract in frontend/src/scripts/storage.js
+- [X] T068 [P] [US4] Implement UnitStorage.getAllUnits() per storage-api.md contract in frontend/src/scripts/storage.js
+- [X] T069 [P] [US4] Implement UnitStorage.createUnit(unitData) per storage-api.md contract in frontend/src/scripts/storage.js
+- [X] T070 [P] [US4] Implement UnitStorage.deleteUnit(id) with usage check per storage-api.md in frontend/src/scripts/storage.js
+- [X] T071 [US4] Create unit selector component (multi-select checkbox list grouped by category) in frontend/src/components/filter-panel.js
+- [X] T072 [US4] Style unit selector component (collapsible groups, clear visual states) in frontend/src/styles/components.css
+- [X] T073 [US4] Load and display all units (default + custom) using UnitStorage.getAllUnits() in frontend/src/components/filter-panel.js
+- [X] T074 [US4] Implement unit selection/deselection handler (multi-select logic) in frontend/src/components/filter-panel.js
+- [X] T075 [US4] Add unit selector to photo card edit mode or modal in frontend/src/components/photo-card.js
+- [X] T076 [US4] Implement save units handler that calls PhotoStorage.updatePhoto() in frontend/src/scripts/photo-list.js
+- [X] T077 [US4] Display assigned units on photo card (tags/badges below image) in frontend/src/components/photo-card.js
+- [X] T078 [US4] Style unit badges (colored tags, compact display) in frontend/src/styles/components.css
+- [X] T079 [US4] Create custom unit creation form in frontend/src/components/filter-panel.js
+- [X] T080 [US4] Implement custom unit creation handler calling UnitStorage.createUnit() in frontend/src/components/filter-panel.js
+- [X] T081 [US4] Add custom unit to unit selector after creation in frontend/src/components/filter-panel.js
+- [X] T082 [US4] Create filter panel component with unit filter UI in frontend/src/components/filter-panel.js
+- [X] T083 [US4] Style filter panel (sidebar or top panel, mobile-responsive) in frontend/src/styles/components.css
+- [X] T084 [US4] Implement unit filter logic using PhotoStorage.getAllPhotos({filterByUnits}) in frontend/src/scripts/filters.js
+- [X] T085 [US4] Connect filter panel to photo list (update list when filter changes) in frontend/src/scripts/app.js
+- [X] T086 [US4] Add filter panel to main page layout in frontend/src/index.html
 
 **Checkpoint**: User Story 4 complete - Users can assign units to photos, create custom units, filter by units
 
@@ -182,18 +183,18 @@
 
 ### Implementation for User Story 5
 
-- [ ] T087 [US5] Create tag input component (chip input with add/remove) in frontend/src/components/filter-panel.js
-- [ ] T088 [US5] Style tag input component (inline chips, add button, delete icons) in frontend/src/styles/components.css
-- [ ] T089 [US5] Implement tag addition handler (validate max 50 chars per tag) in frontend/src/components/filter-panel.js
-- [ ] T090 [US5] Implement tag removal handler in frontend/src/components/filter-panel.js
-- [ ] T091 [US5] Add tag input to photo card edit mode or modal (reuse US4 edit interface) in frontend/src/components/photo-card.js
-- [ ] T092 [US5] Implement save tags handler that calls PhotoStorage.updatePhoto({tags}) in frontend/src/scripts/photo-list.js
-- [ ] T093 [US5] Display assigned tags on photo card (inline badges below units) in frontend/src/components/photo-card.js
-- [ ] T094 [US5] Style tag badges (different visual style from unit badges) in frontend/src/styles/components.css
-- [ ] T095 [US5] Add tag filter UI to filter panel in frontend/src/components/filter-panel.js
-- [ ] T096 [US5] Implement tag filter logic using PhotoStorage.getAllPhotos({filterByTags}) in frontend/src/scripts/filters.js
-- [ ] T097 [US5] Connect tag filter to photo list (AND logic for multiple tags) in frontend/src/scripts/app.js
-- [ ] T098 [US5] Implement combined unit + tag filtering in frontend/src/scripts/filters.js
+- [X] T087 [US5] Create tag input component (chip input with add/remove) in frontend/src/components/filter-panel.js
+- [X] T088 [US5] Style tag input component (inline chips, add button, delete icons) in frontend/src/styles/components.css
+- [X] T089 [US5] Implement tag addition handler (validate max 50 chars per tag) in frontend/src/components/filter-panel.js
+- [X] T090 [US5] Implement tag removal handler in frontend/src/components/filter-panel.js
+- [X] T091 [US5] Add tag input to photo card edit mode or modal (reuse US4 edit interface) in frontend/src/components/photo-card.js
+- [X] T092 [US5] Implement save tags handler that calls PhotoStorage.updatePhoto({tags}) in frontend/src/scripts/photo-list.js
+- [X] T093 [US5] Display assigned tags on photo card (inline badges below units) in frontend/src/components/photo-card.js
+- [X] T094 [US5] Style tag badges (different visual style from unit badges) in frontend/src/styles/components.css
+- [X] T095 [US5] Add tag filter UI to filter panel in frontend/src/components/filter-panel.js
+- [X] T096 [US5] Implement tag filter logic using PhotoStorage.getAllPhotos({filterByTags}) in frontend/src/scripts/filters.js
+- [X] T097 [US5] Connect tag filter to photo list (AND logic for multiple tags) in frontend/src/scripts/app.js
+- [X] T098 [US5] Implement combined unit + tag filtering in frontend/src/scripts/filters.js
 
 **Checkpoint**: User Story 5 complete - Users can add tags, filter by tags, use combined unit+tag filters
 
@@ -203,18 +204,18 @@
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T099 [P] Implement Service Worker registration for offline support in frontend/src/scripts/service-worker.js
-- [ ] T100 [P] Define Service Worker cache strategy (cache-first for static assets) in frontend/src/scripts/service-worker.js
-- [ ] T101 [P] Add Service Worker install and activate event handlers in frontend/src/scripts/service-worker.js
-- [ ] T102 [P] Register Service Worker in app initialization in frontend/src/scripts/app.js
-- [ ] T103 [P] Add storage quota check and warning when approaching limit (>200 photos) in frontend/src/scripts/app.js
-- [ ] T104 [P] Add first-time user guide/tooltip overlay in frontend/src/scripts/app.js
-- [ ] T105 [P] Implement keyboard shortcuts (ESC to close modal, Enter to confirm) in frontend/src/scripts/app.js
-- [ ] T106 [P] Add loading states for all async operations in frontend/src/scripts/app.js
-- [ ] T107 [P] Add ARIA labels and semantic HTML for accessibility in all components
-- [ ] T108 [P] Optimize image loading (lazy loading for thumbnails) in frontend/src/scripts/photo-list.js
-- [ ] T109 [P] Add meta tags for mobile (viewport, theme-color, apple-touch-icon) in frontend/src/index.html
-- [ ] T110 [P] Create README.md with deployment instructions per quickstart.md
+- [X] T099 [P] Implement Service Worker registration for offline support in frontend/src/scripts/service-worker.js
+- [X] T100 [P] Define Service Worker cache strategy (cache-first for static assets) in frontend/src/scripts/service-worker.js
+- [X] T101 [P] Add Service Worker install and activate event handlers in frontend/src/scripts/service-worker.js
+- [X] T102 [P] Register Service Worker in app initialization in frontend/src/scripts/app.js
+- [X] T103 [P] Add storage quota check and warning when approaching limit (>200 photos) in frontend/src/scripts/app.js
+- [X] T104 [P] Add first-time user guide/tooltip overlay in frontend/src/scripts/app.js
+- [X] T105 [P] Implement keyboard shortcuts (ESC to close modal, Enter to confirm) in frontend/src/scripts/app.js
+- [X] T106 [P] Add loading states for all async operations in frontend/src/scripts/app.js
+- [X] T107 [P] Add ARIA labels and semantic HTML for accessibility in all components
+- [X] T108 [P] Optimize image loading (lazy loading for thumbnails) in frontend/src/scripts/photo-list.js
+- [X] T109 [P] Add meta tags for mobile (viewport, theme-color, apple-touch-icon) in frontend/src/index.html
+- [X] T110 [P] Create README.md with deployment instructions per quickstart.md
 - [ ] T111 Test complete user flow: upload → browse → assign units/tags → filter → delete
 - [ ] T112 Test offline functionality: disable network, refresh page, verify photos visible
 - [ ] T113 Test mobile camera upload on actual mobile device

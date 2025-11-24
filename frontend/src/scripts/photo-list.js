@@ -45,17 +45,20 @@ function createPhotoCardHTML(photo) {
     const timeText = formatRelativeTime(photo.uploadedAt);
     const settings = getSettings();
     
-    // Render units
+    // Render units with unit names instead of IDs
     const unitsHTML = photo.units && photo.units.length > 0
         ? `<div class="photo-card-units">
-            ${photo.units.map(unitId => `<span class="unit-badge" data-unit="${unitId}">${unitId.split('-').pop()}</span>`).join('')}
+             ${photo.units.map(unitId => {
+                 const unitName = unitId.split('-').slice(2).join('-');
+                 return `<span class="unit-badge" data-unit="${unitId}">${unitName}</span>`;
+             }).join('')}
            </div>`
         : '';
     
     // Render tags
     const tagsHTML = photo.tags && photo.tags.length > 0
         ? `<div class="photo-card-tags">
-            ${photo.tags.map(tag => `<span class="tag-badge">${tag}</span>`).join('')}
+             ${photo.tags.map(tag => `<span class="tag-badge">${tag}</span>`).join('')}
            </div>`
         : '';
     
@@ -68,6 +71,9 @@ function createPhotoCardHTML(photo) {
         <div class="photo-card" data-photo-id="${photo.id}">
             <button class="photo-card-delete" data-photo-id="${photo.id}" aria-label="刪除">
                 ×
+            </button>
+            <button class="photo-card-edit" data-photo-id="${photo.id}" aria-label="編輯">
+                ✏️
             </button>
             <img class="photo-card-image" src="${thumbnailURL}" alt="${photo.fileName || '錯題照片'}" loading="lazy">
             <div class="photo-card-meta">
@@ -85,10 +91,11 @@ function attachPhotoCardListeners() {
     // Click to view full image
     document.querySelectorAll('.photo-card').forEach(card => {
         const deleteBtn = card.querySelector('.photo-card-delete');
+        const editBtn = card.querySelector('.photo-card-edit');
         
-        // Don't open modal when clicking delete button
+        // Don't open modal when clicking delete or edit button
         card.addEventListener('click', async (e) => {
-            if (e.target.closest('.photo-card-delete')) {
+            if (e.target.closest('.photo-card-delete') || e.target.closest('.photo-card-edit')) {
                 return;
             }
             
@@ -103,6 +110,16 @@ function attachPhotoCardListeners() {
             e.stopPropagation();
             const photoId = btn.dataset.photoId;
             await handlePhotoDelete(photoId);
+        });
+    });
+
+    // Edit button listeners
+    document.querySelectorAll('.photo-card-edit').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            const photoId = btn.dataset.photoId;
+            const { openPhotoEditor } = await import('../components/photo-card.js');
+            openPhotoEditor(photoId);
         });
     });
 }
@@ -188,6 +205,31 @@ async function handlePhotoDelete(photoId) {
 window.addEventListener('photo-uploaded', () => {
     renderPhotoList();
 });
+
+// Listen for filtered photos rendering
+window.addEventListener('render-filtered-photos', (e) => {
+    const { photos } = e.detail;
+    renderFilteredPhotos(photos);
+});
+
+// Render filtered photos
+function renderFilteredPhotos(photos) {
+    const photoGrid = document.getElementById('photo-grid');
+    const emptyState = document.getElementById('empty-state');
+    
+    if (!photoGrid || !emptyState) {
+        console.error('Photo grid or empty state element not found');
+        return;
+    }
+    
+    emptyState.classList.add('hidden');
+    
+    // Render photo cards
+    photoGrid.innerHTML = photos.map(photo => createPhotoCardHTML(photo)).join('');
+    
+    // Attach event listeners
+    attachPhotoCardListeners();
+}
 
 // Initialize on load
 function init() {

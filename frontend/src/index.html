@@ -74,6 +74,38 @@
         <div id="notification" class="notification hidden">
             <span id="notification-message"></span>
         </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading-indicator" class="loading-indicator hidden">
+            <div class="loading-spinner"></div>
+            <p id="loading-message">處理中...</p>
+        </div>
+
+        <!-- First-time User Guide -->
+        <div id="user-guide" class="user-guide hidden">
+            <div class="user-guide-overlay"></div>
+            <div class="user-guide-content">
+                <h2>👋 歡迎使用錯題收集網站！</h2>
+                <div class="user-guide-steps">
+                    <div class="guide-step">
+                        <span class="guide-step-icon">📸</span>
+                        <h3>1. 上傳錯題</h3>
+                        <p>點擊上方按鈕，選擇照片或使用相機拍照</p>
+                    </div>
+                    <div class="guide-step">
+                        <span class="guide-step-icon">🏷️</span>
+                        <h3>2. 分類整理</h3>
+                        <p>為錯題分配單元和標籤，方便日後查找</p>
+                    </div>
+                    <div class="guide-step">
+                        <span class="guide-step-icon">🔍</span>
+                        <h3>3. 篩選複習</h3>
+                        <p>使用左側篩選面板，按單元或標籤查看錯題</p>
+                    </div>
+                </div>
+                <button id="close-guide" class="btn btn-primary">開始使用</button>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
