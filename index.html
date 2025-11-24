@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4A90E2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>錯題收集網站</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    
+    <!-- Dependencies (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/idb@7/build/umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/compressorjs@1.2.1/dist/compressor.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@swiftprotocol/iodine@8.2.3/dist/iodine.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/plugin/relativeTime.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/locale/zh-tw.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>📚 錯題收集</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main class="app-main">
+            <!-- Upload Button Container -->
+            <div id="upload-container" class="upload-container"></div>
+
+            <!-- Filter Panel Container -->
+            <div id="filter-panel" class="filter-panel"></div>
+
+            <!-- Photo Grid Container -->
+            <div id="photo-grid" class="photo-grid"></div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state hidden">
+                <div class="empty-state-content">
+                    <span class="empty-icon">📸</span>
+                    <h2>還沒有錯題</h2>
+                    <p>點擊上方按鈕開始上傳第一張錯題照片吧！</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal for Full Image View -->
+        <div id="photo-modal" class="modal hidden">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" aria-label="關閉">&times;</button>
+                <img id="modal-image" src="" alt="錯題照片">
+            </div>
+        </div>
+
+        <!-- Confirmation Dialog -->
+        <div id="confirm-dialog" class="modal hidden">
+            <div class="modal-overlay"></div>
+            <div class="modal-content confirm-dialog">
+                <h3 id="confirm-title">確認操作</h3>
+                <p id="confirm-message">確定要執行此操作嗎？</p>
+                <div class="confirm-actions">
+                    <button id="confirm-cancel" class="btn btn-secondary">取消</button>
+                    <button id="confirm-ok" class="btn btn-danger">確定</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification Toast -->
+        <div id="notification" class="notification hidden">
+            <span id="notification-message"></span>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading-indicator" class="loading-indicator hidden">
+            <div class="loading-spinner"></div>
+            <p id="loading-message">處理中...</p>
+        </div>
+
+        <!-- First-time User Guide -->
+        <div id="user-guide" class="user-guide hidden">
+            <div class="user-guide-overlay"></div>
+            <div class="user-guide-content">
+                <h2>👋 歡迎使用錯題收集網站！</h2>
+                <div class="user-guide-steps">
+                    <div class="guide-step">
+                        <span class="guide-step-icon">📸</span>
+                        <h3>1. 上傳錯題</h3>
+                        <p>點擊上方按鈕，選擇照片或使用相機拍照</p>
+                    </div>
+                    <div class="guide-step">
+                        <span class="guide-step-icon">🏷️</span>
+                        <h3>2. 分類整理</h3>
+                        <p>為錯題分配單元和標籤，方便日後查找</p>
+                    </div>
+                    <div class="guide-step">
+                        <span class="guide-step-icon">🔍</span>
+                        <h3>3. 篩選複習</h3>
+                        <p>使用左側篩選面板，按單元或標籤查看錯題</p>
+                    </div>
+                </div>
+                <button id="close-guide" class="btn btn-primary">開始使用</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="scripts/storage.js"></script>
+    <script type="module" src="scripts/app.js"></script>
+    <script type="module" src="scripts/photo-list.js"></script>
+    <script type="module" src="scripts/filters.js"></script>
+    <script type="module" src="components/upload-button.js"></script>
+    <script type="module" src="components/photo-card.js"></script>
+    <script type="module" src="components/filter-panel.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>
